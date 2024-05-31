@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- <context:annotation-config />
+	<bean class="kr.soft.study.ApplicationConfig" /> -->
+	
+	<bean id="student2" class="kr.soft.study.Student">
+		
+		<constructor-arg value="홍길자" />
+		<constructor-arg value="50" />
+		<constructor-arg>
+			<list>
+				<value>수영</value>
+				<value>요리</value>
+			</list>
+		</constructor-arg>
+		<property name="height" value="160" />
+		<property name="weight" value="50" />
+		
+	</bean>
+
+</beans>

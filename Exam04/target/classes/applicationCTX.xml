@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean id="bmiCalculator" class="kr.soft.study.BMICalculator">
+		<property name="lowWeight">
+			<value>18.5</value>
+		</property>
+		<property name="normal" value="23" />
+		<property name="overWeight" value="25" />
+		<property name="obesity" value="30" />
+	</bean>
+
+	<bean id="myInfo" class="kr.soft.study.MyInfo">
+		<property name="bmiCalculator">
+			<ref bean="bmiCalculator" />
+		</property>
+		<property name="hobbys">
+			<list>
+				<value>놀기</value>
+				<value>먹기</value>
+				<value>잠자기</value>
+			</list>
+		</property>
+		<property name="name" value="김현지" />
+		<property name="height" value="167" />
+		<property name="weight" value="49" />
+	</bean>
+
+</beans>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean id="student" class="kr.soft.study.Student">
+		<property name="name">
+			<value>김근미</value>
+		</property>
+		<property name="age">
+			<value>26</value>
+		</property>	
+		<property name="gradeNum">
+			<value>4</value>
+		</property>	
+		<property name="classNum">
+			<value>1</value>
+		</property>		
+	</bean>
+	
+	<bean id="studentInfo" class="kr.soft.study.StudentInfo">
+		<property name="student">
+			<ref bean="student" />
+		</property>
+	</bean>
+
+	<bean id="student2" class="kr.soft.study.Student">
+		<property name="name">
+			<value>김현지</value>
+		</property>
+		<property name="age">
+			<value>30</value>
+		</property>	
+		<property name="gradeNum">
+			<value>6</value>
+		</property>	
+		<property name="classNum">
+			<value>1</value>
+		</property>		
+	</bean>
+	
+	<bean id="student3" class="kr.soft.study.Student">
+		<constructor-arg>
+			<value>홍길동</value>
+		</constructor-arg>
+		<constructor-arg>
+			<value>10</value>
+		</constructor-arg>
+		<constructor-arg>
+			<value>3</value>
+		</constructor-arg>
+		<constructor-arg>
+			<value>20</value>
+		</constructor-arg>
+	</bean>
+	
+	<bean id="studentInfo2" class="kr.soft.study.StudentInfo">
+		<constructor-arg>
+			<ref bean="student3" />
+		</constructor-arg>
+	</bean>
+	
+	<bean id="student4" class="kr.soft.study.Student">
+		<constructor-arg value="홍길동" />
+		<constructor-arg value="9" />
+		<constructor-arg value="2" />
+		<constructor-arg value="10" />
+	</bean>
+
+</beans>
