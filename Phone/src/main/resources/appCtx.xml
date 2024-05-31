@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+
+	<context:annotation-config/> <!-- 빈의 데이터 타입을 보고 의존 객체를 자동으로 주입함  -->
+
+	<bean id="initSampleData" class="kr.contact.utils.InitSampleData">
+		<property name="names">
+			<list>
+				<value>김근미</value>
+				<value>우내은</value>
+				<value>김현지</value>
+			</list>
+		</property>
+		<property name="phoneNumbers">
+			<list>
+				<value>010-1234-5555</value>
+				<value>010-1222-3333</value>
+				<value>010-2809-9653</value>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="contactDao" class="kr.contact.dao.ContactDao" />
+	
+	<bean id="registerService" class="kr.contact.service.ContactRegisterService" />
+	
+	<bean id="searchService" class="kr.contact.service.ContactSearchService" />
+	
+</beans>
