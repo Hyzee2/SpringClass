@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd">
+
+	<aop:config>
+		<aop:aspect id="logger" ref="logAop">
+			<aop:pointcut expression="execution(public void kr.soft.study.Worker.getWorkerInfo())" id="publicM"/>
+			<aop:around method="loggerAop" pointcut-ref="publicM"/>
+		</aop:aspect>
+	</aop:config>
+	
+	<bean id="logAop" class="kr.soft.study.LogAop"></bean>
+	
+	<bean id="student" class="kr.soft.study.Student">
+		<property name="name" value="김현지"></property>
+		<property name="age" value="30"></property>
+		<property name="gradeNum" value="3"></property>
+		<property name="classNum" value="5"></property>
+	</bean>
+
+	<bean id="worker" class="kr.soft.study.Worker">
+		<property name="name" value="김근미"></property>
+		<property name="age" value="26"></property>
+		<property name="job" value="개발자"></property>	
+	</bean>
+
+</beans>

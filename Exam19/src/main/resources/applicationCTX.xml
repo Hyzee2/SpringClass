@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+	<bean id="logAop" class="kr.soft.study.LogAop"></bean>
+	
+	<aop:config>
+		<aop:aspect id="logger" ref="logAop"> <!-- LogAop class를 공통기능으로 사용하겠다! -->
+			<aop:pointcut expression="within(kr.soft.study.*)" id="publicM"/> <!-- 실제 적용되는 부분 expression에서 전체 패키지에서 적용시키겠다! -->
+			<aop:around method="loggerAop" pointcut-ref="publicM"/> <!-- around: pointcut에 적용되는 메소드가 있으면 앞뒤로 실행하겠다! 무엇을? loggerAop메소드를! -->
+		</aop:aspect>
+	
+	 	<aop:aspect id="logger" ref="logAop"> 
+			<aop:pointcut id="publicM" expression="within(kr.soft.study.*)" /> 
+			<aop:before pointcut-ref="publicM" method="beforeAdvice" /> 
+		</aop:aspect> 
+	
+		<aop:aspect id="logger" ref="logAop"> 
+			<aop:pointcut expression="within(kr.soft.study.*)" id="publicM"/> 
+			<aop:after-returning method="afterReturningAdvice" pointcut-ref="publicM"/> 
+		</aop:aspect>
+	
+		<aop:aspect id="logger" ref="logAop"> 
+			<aop:pointcut expression="within(kr.soft.study.*)" id="publicM"/> 
+			<aop:after-throwing method="afterThrowingAdvice" pointcut-ref="publicM"/> 
+		</aop:aspect> 
+	
+		<aop:aspect id="logger" ref="logAop"> 
+			<aop:pointcut expression="within(kr.soft.study.*)" id="publicM"/> 
+			<aop:after method="afterAdvice" pointcut-ref="publicM"/> 
+		</aop:aspect>  
+	</aop:config>
+
+	<bean id="student" class="kr.soft.study.Student">
+		<property name="name" value="김현지"></property>
+		<property name="age" value="30"></property>
+		<property name="gradeNum" value="3"></property>
+		<property name="classNum" value="5"></property>
+	</bean>
+
+	<bean id="worker" class="kr.soft.study.Worker">
+		<property name="name" value="김근미"></property>
+		<property name="age" value="26"></property>
+		<property name="job" value="개발자"></property>	
+	</bean>
+</beans>

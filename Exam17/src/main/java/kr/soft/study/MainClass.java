@@ -19,9 +19,9 @@ public class MainClass {
 		
 		sc.close();
 		
-		GenericXmlApplicationContext ctx = new GenericXmlApplicationContext();
-		ctx.getEnvironment().setActiveProfiles(config);
-		ctx.load("applicationCTX_dev.xml", "applicationCTX_run.xml");
+		GenericXmlApplicationContext ctx = new GenericXmlApplicationContext(); // 스프링 컨텍스트를 xml 방식으로 설정할 예정. 
+		ctx.getEnvironment().setActiveProfiles(config); // 적용될 activeProfiles 속성을 config로 지정 
+		ctx.load("applicationCTX_dev.xml", "applicationCTX_run.xml"); // xml 파일 모두 로드 시키기 
 		
 		ServerInfo info = ctx.getBean("serverInfo", ServerInfo.class);
 		System.out.println("ip : "+info.getIpNum());
