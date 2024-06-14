@@ -7,7 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import kr.soft.study.member.Member;
+import kr.soft.study.bean.Member;
 
 @Controller
 @RequestMapping("/member")

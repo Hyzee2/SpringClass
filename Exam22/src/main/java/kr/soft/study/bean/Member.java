@@ -1,4 +1,4 @@
-package kr.soft.study.member;
+package kr.soft.study.bean;
 
 public class Member {
 	
