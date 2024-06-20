@@ -26,6 +26,7 @@ public class BDao {
 		String query = "select bId, bName, bTitle, bContent, bDate, bHit, bGroup, bStep, bIndent "
 				+"from mvc_board order by bGroup desc, bStep asc";
 		return (ArrayList<BDto>)template.query(query, new BeanPropertyRowMapper<BDto>(BDto.class));
+		// BeanPropertyRowMapper는 지정된 클래스의 필드와 동일한 이름을 가진 데이터베이스 컬럼을 자동으로 매핑해준다. 
 	}
 
 	public BDto contentView(String bId) {
@@ -100,6 +101,7 @@ public class BDao {
 				ps.setInt(6, Integer.parseInt(bIndent)+1);
 			}
 		});
+		// 이렇게 쓰는 이유는 파라미터 값이 Integer.parseInt()처럼 계산된 결과를 사용해야 할 때 
 		
 	}
 
