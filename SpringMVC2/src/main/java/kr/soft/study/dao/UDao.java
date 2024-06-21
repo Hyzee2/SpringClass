@@ -9,11 +9,8 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-import kr.soft.study.dto.BDto;
 import kr.soft.study.dto.UDto;
 import kr.soft.study.util.Constant;
-
-import javax.naming.*;
 
 public class UDao {
 
