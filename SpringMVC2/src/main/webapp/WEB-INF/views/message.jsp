@@ -13,10 +13,8 @@
 </script>
 </head>
 <body>
-<script type="text/javascript">
-	
-	showMessageAndRedirect('${error}', '${url}');
-	
-</script>
+	<script type="text/javascript">
+		showMessageAndRedirect('${error}', '${url}');
+	</script>
 </body>
 </html>

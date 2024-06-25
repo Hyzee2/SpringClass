@@ -48,7 +48,7 @@
 						<a class="nav-link" href="../board/boardlist">게시판</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="./login/SearchView.jsp">검색🔍</a>
+						<a class="nav-link" href="../user/error">검색🔍</a>
 					</li>
 					
 				</ul>

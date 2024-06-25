@@ -22,6 +22,14 @@ public class UController {
 	
 	Command command = null;
 	
+	@RequestMapping("/error")
+	public String error(Model model) {
+		model.addAttribute("error", "서비스 준비 중입니다.");
+		model.addAttribute("url", "main");
+		return "message";
+		
+	}
+	
 	@RequestMapping("/login") // 로그인 페이지를 보여줌 
 	public String confirmLogin() {
 		return "user/loginForm";

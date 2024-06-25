@@ -4,11 +4,17 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 
-import kr.soft.study.dao.BDao;
+
+import kr.soft.study.dao.BoardDao;
+import kr.soft.study.util.Constant;
 
 public class BDeleteCommand implements BCommand {
+	
+	
 
 	@Override
 	public void execute(Model model) {
@@ -18,8 +24,10 @@ public class BDeleteCommand implements BCommand {
 		HttpServletRequest request = (HttpServletRequest)map.get("request");
 		
 		String bId = request.getParameter("bId");
-		BDao dao = new BDao();
-		dao.delete(bId);
+//		BDao dao = new BDao();
+//		dao.delete(bId);
+		
+		Constant.dao.delete(bId);
 
 	}
 

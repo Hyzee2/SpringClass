@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.transaction.annotation.Transactional;
 
 import kr.soft.study.dto.BaDto;
 import kr.soft.study.util.Constant;
@@ -17,6 +18,7 @@ public class BaDao {
 		this.template = Constant.template;
 	}
 
+	@Transactional
 	public boolean basketAdd(BaDto basketdata) {
 		// 장바구니 db에 담은 제품들은 insert 하기
 

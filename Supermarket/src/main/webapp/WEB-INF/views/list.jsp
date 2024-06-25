@@ -78,9 +78,9 @@
 <body>
 	<p class="text-4xl my-8 text-center">🍪 쿠키 상품 목록</p>
 	<div class="d-flex justify-content-center text-center">
-		<div class="mx-auto" style="width:65%;">
+		<div class="mx-auto" style="width: 65%;">
 			<div class="w-100">
-				<form name="List" method="post" action="cart">
+				<form name="List" method="post" action="listAdd">
 					<table class="table">
 						<tr>
 							<th class="table-warning">제품 사진</th>
@@ -91,39 +91,50 @@
 						<tr>
 							<td><img src="resources/cookie1.png" class="img mx-auto" /></td>
 							<td class="align-middle"><p class="fs-4">AmericanCookie</p></td>
+							<input type="hidden" name="name" value="AmericanCookie" />
 							<td class="align-middle">3,000원</td>
-							<td class="align-middle"><input type="button" value="-" name="decreaseAme"
-								onclick="decrease('Ame')" class="btn btn-outline-primary"/> <input type="number" name="AmeCnt"
-								id="quantityAme" value="0" style="width: 30px" /> <input
-								type="button" value="+" name="increaseAme"
-								onclick="increase('Ame')" class="btn btn-outline-primary"/></td>
+							<input type="hidden" name="price" value="3000" />
+							<td class="align-middle"><input type="button" value="-"
+								name="decreaseAme" onclick="decrease('Ame')"
+								class="btn btn-outline-primary" /> <input type="number"
+								name="count" id="quantityAme" value="0" style="width: 30px" />
+								<input type="button" value="+" name="increaseAme"
+								onclick="increase('Ame')" class="btn btn-outline-primary" /></td>
 						</tr>
 						<tr>
 							<td><img src="resources/cookie2.png" class="img mx-auto" /></td>
 							<td class="align-middle"><p class="fs-4">DoubleChocoCookie</p></td>
+							<input type="hidden" name="name" value="DoubleChocoCookie" />
 							<td class="align-middle">2,800원</td>
-							<td class="align-middle"><input type="button" value="-" name="decreaseDouble"
-								onclick="decrease('Double')" class="btn btn-outline-primary"/> <input type="number"
-								name="DoubleCnt" id="quantityDouble" value="0"
+							<input type="hidden" name="price" value="2800" />
+							<td class="align-middle"><input type="button" value="-"
+								name="decreaseDouble" onclick="decrease('Double')"
+								class="btn btn-outline-primary" /> <input type="number"
+								name="count" id="quantityDouble" value="0"
 								style="width: 30px" /> <input type="button" value="+"
-								name="increaseDouble" onclick="increase('Double')" class="btn btn-outline-primary"/></td>
+								name="increaseDouble" onclick="increase('Double')"
+								class="btn btn-outline-primary" /></td>
 						</tr>
 						<tr>
 							<td><img src="resources/cookie3.png" class="img mx-auto" /></td>
 							<td class="align-middle"><p class="fs-4">LimeCookie</p></td>
+							<input type="hidden" name="name" value="LimeCookie" />
 							<td class="align-middle">2,600원</td>
-							<td class="align-middle"><input type="button" value="-" name="decreaseOtmeal"
-								onclick="decrease('Otmeal')" class="btn btn-outline-primary"/> <input type="number"
-								name="OtmealCnt" id="quantityOtmeal" value="0"
+							<input type="hidden" name="price" value="2600" />
+							<td class="align-middle"><input type="button" value="-"
+								name="decreaseOtmeal" onclick="decrease('Otmeal')"
+								class="btn btn-outline-primary" /> <input type="number"
+								name="count" id="quantityOtmeal" value="0"
 								style="width: 30px" /> <input type="button" value="+"
-								name="increaseOtmeal" onclick="increase('Otmeal')" class="btn btn-outline-primary"/></td>
+								name="increaseOtmeal" onclick="increase('Otmeal')"
+								class="btn btn-outline-primary" /></td>
 						</tr>
 					</table>
 					<div class="d-flex justify-content-end">
 						<input type=submit name=intoCart value="장바구니 담기 및 이동"
-							style="margin-top: 20px" class="m-4 btn btn-outline-success" /> <input type=button
-							name=intoCart value="장바구니 이동" style="margin-top: 20px"
-							class="m-4 btn btn-outline-warning" />
+							style="margin-top: 20px" class="m-4 btn btn-outline-success" />
+						<input type=button name=intoCart value="장바구니 이동" onclick="location.href='./cart'"
+							style="margin-top: 20px" class="m-4 btn btn-outline-warning" />
 					</div>
 					<br>
 				</form>

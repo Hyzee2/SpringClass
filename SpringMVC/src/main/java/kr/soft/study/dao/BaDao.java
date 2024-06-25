@@ -93,7 +93,9 @@ public class BaDao {
 		// 장바구니 내역 select 하기 
 		String basket_list_sql = "select * from basket where id = ?";
 
-		ArrayList<BaDto> list = new ArrayList<BaDto>(); 
+		ArrayList<BaDto> list = null; 
+		// new ArrayList<>() 하게 되면 텅 빈 객체가 생성되기 때문에 위험한 코드!! 
+		// null로 확실하게 설정해준다. 아니면 데이터 값 바로 담아주기  
 		try {
 			pstmt = con.prepareStatement(basket_list_sql);
 			pstmt.setString(1, id); // where 조건절에서 첫번째 ? 설정
@@ -107,6 +109,7 @@ public class BaDao {
 				basket.setItem_name(rs.getString("item_name"));
 				basket.setItem_price(rs.getString("item_price"));
 				basket.setItem_total(rs.getString("item_total"));
+				
 				list.add(basket); 
 			}
 
